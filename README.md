@@ -2,6 +2,8 @@
 
 A lightweight, cross-platform C2 (Command & Control) client implemented in Go, controlled remotely via Telegram Bot API.
 
+> **中文文档**: [README_zh.md](https://github.com/edakfcmaxzdjce/TG_c2_go/blob/main/README_zh.md) | **English**: README.md
+
 ## 📋 Project Overview
 
 TG C2 Go is a lightweight, cross-platform C2 client that enables remote control and command execution through the Telegram Bot API.

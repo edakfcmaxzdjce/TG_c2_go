@@ -2,6 +2,8 @@
 
 这是一个通过 Telegram Bot API 进行远程控制的 C2 (Command & Control) 客户端，使用 Go 语言实现。
 
+> **English**: [README.md](https://github.com/edakfcmaxzdjce/TG_c2_go/blob/main/README.md) | **中文文档**: README_zh.md
+
 ## 📋 项目概述
 
 TG C2 Go 是一个轻量级、跨平台的 C2 客户端，通过 Telegram Bot API 实现远程控制和命令执行。
