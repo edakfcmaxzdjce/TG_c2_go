@@ -24,14 +24,14 @@ BUILD_MODE=${BUILD_MODE:-1}
 
 if [ "$BUILD_MODE" = "2" ]; then
     BUILD_TYPE="debug"
-    WINDOWS_LDFLAGS="-ldflags=-s -w"
-    OTHER_LDFLAGS="-ldflags=-s -w"
+    WINDOWS_LDFLAGS='-ldflags="-s -w"'
+    OTHER_LDFLAGS='-ldflags="-s -w"'
     echo "✅ 选择: Debug版本 (显示控制台)"
 else
     BUILD_TYPE="release"
     # Windows使用windowsgui隐藏控制台窗口
     WINDOWS_LDFLAGS='-ldflags="-H windowsgui -s -w"'
-    OTHER_LDFLAGS="-ldflags=-s -w"
+    OTHER_LDFLAGS='-ldflags="-s -w"'
     echo "✅ 选择: 正常版本 (Windows隐藏窗口)"
 fi
 echo ""
@@ -89,7 +89,7 @@ fi
 
 # Linux 64位
 echo "构建 Linux 64位版本..."
-GOOS=linux GOARCH=amd64 go build -trimpath $OTHER_LDFLAGS -o $BUILD_DIR/TG_c2_go_linux_amd64
+eval "GOOS=linux GOARCH=amd64 go build -trimpath $OTHER_LDFLAGS -o $BUILD_DIR/TG_c2_go_linux_amd64"
 if [ $? -eq 0 ]; then
     SIZE=$(ls -lh $BUILD_DIR/TG_c2_go_linux_amd64 | awk '{print $5}')
     echo "✅ Linux 64位构建完成 (大小: $SIZE, 模式: $BUILD_TYPE)"
@@ -99,7 +99,7 @@ fi
 
 # macOS 64位 (Intel)
 echo "构建 macOS 64位版本..."
-GOOS=darwin GOARCH=amd64 go build -trimpath $OTHER_LDFLAGS -o $BUILD_DIR/TG_c2_go_darwin_amd64
+eval "GOOS=darwin GOARCH=amd64 go build -trimpath $OTHER_LDFLAGS -o $BUILD_DIR/TG_c2_go_darwin_amd64"
 if [ $? -eq 0 ]; then
     SIZE=$(ls -lh $BUILD_DIR/TG_c2_go_darwin_amd64 | awk '{print $5}')
     echo "✅ macOS Intel 64位构建完成 (大小: $SIZE, 模式: $BUILD_TYPE)"
@@ -109,7 +109,7 @@ fi
 
 # macOS ARM64 (Apple Silicon)
 echo "构建 macOS ARM64版本..."
-GOOS=darwin GOARCH=arm64 go build -trimpath $OTHER_LDFLAGS -o $BUILD_DIR/TG_c2_go_darwin_arm64
+eval "GOOS=darwin GOARCH=arm64 go build -trimpath $OTHER_LDFLAGS -o $BUILD_DIR/TG_c2_go_darwin_arm64"
 if [ $? -eq 0 ]; then
     SIZE=$(ls -lh $BUILD_DIR/TG_c2_go_darwin_arm64 | awk '{print $5}')
     echo "✅ macOS ARM64构建完成 (大小: $SIZE, 模式: $BUILD_TYPE)"
